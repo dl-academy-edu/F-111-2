@@ -1,0 +1,11 @@
+%pseudo {
+    content: '';
+    display: block;
+    position: absolute;
+}
+
+@mixin font-size($font-size:16px, $line-height:21px, $font-weight:400) {
+    font-size: $font-size;
+    font-weight: $font-weight;
+    line-height: $line-height;
+}

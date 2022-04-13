@@ -5,25 +5,22 @@
     line-height: 18px;
     text-align: center;
     text-transform: uppercase;
-    color: #FFFFFF;
-    background: #008752;
+    color: $white;
+    background: $green;
     text-decoration: none;
     border: none;
     width: 181px;
     display: block;
     padding: 11px;
     cursor: pointer;
-}
+    &:hover {
+        background: #26CD8B;
+    }
+    &:active {
+        background: $green-light;
+    }
 
-.button:hover {
-    background: #26CD8B;
+    &_secondary {
+        background: $green-dark;
+    }
 }
-
-.button:active {
-    background: #005232;
-}
-
-.button-secondary {
-    background: #95459A !important;
-}
-
