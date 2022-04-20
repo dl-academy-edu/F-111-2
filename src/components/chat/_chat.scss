@@ -1,0 +1,102 @@
+@keyframes chat {
+    from {
+        max-height: 0;
+    }
+    to {
+        max-height: 500px;
+    }
+}
+
+.chat {
+    position: fixed;
+    bottom: 10px;
+    right: 50px;
+    width: 300px;
+    height: 488px;
+    background: #FFFFFF;
+    box-shadow: 0px 0px 30px rgba(0, 0, 0, 0.35);
+    overflow: hidden;
+    z-index: 2;
+    &__header {
+        background: #F6F6F8;
+        padding: 14px 15px;
+        border-bottom: 1px solid #d9d9db;
+        position: absolute;
+         width: 100%;
+         z-index: 2;
+    }
+    &__title {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 22px;
+        color: #27253F
+    }
+    &__desc {
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 14px;
+        color: #6B6A6A;
+    }
+    &__close {
+        position: absolute;
+        right: 15px;
+        top: 24px;
+        cursor: pointer;
+        border: none;
+        background: transparent;
+    }
+
+    &__content {
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        height: 100%;
+
+    }
+
+    &__message-container {
+        animation: chat 2s forwards;
+        max-height: 0;
+
+        @for $i from 1 through 8 {
+            &:nth-child(#{$i}) {
+                animation-delay: $i + s;
+            }
+        }
+    }
+
+    &__message {
+        font-size: 14px;
+        line-height: 17px;
+        padding: 8px 11px;
+        border-radius: 10px;
+        position: relative;
+        color: #27253F;
+        width: 75%;
+        &:after {
+            @extend %pseudo;
+            bottom: 0;
+            width: 10px;
+            height: 10px;
+        }
+    }
+
+    &__message_right {
+        background: #2198F4;
+        color: #fff;
+        margin: 0 15px 15px auto;
+        &:after {
+            background: url('../../static/images/blue-tail.png') no-repeat;
+            right: -5px;
+        }
+    }
+
+    &__message_left {
+        background: #E4E3E8;
+        margin: 0 auto 15px 15px;
+        &:after {
+            background: url('../../static/images/gray-tail.png') no-repeat;
+            left: -5px;
+        }
+    }
+}

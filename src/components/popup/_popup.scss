@@ -1,0 +1,33 @@
+
+.modal {
+    background: rgba(149, 69, 154, 0.9);
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 6;
+    align-items: center;
+    justify-content: center;
+    display: none;
+  }
+  
+  .modal-open {
+    display: flex;
+  }
+  
+  .modal-form {
+    width: 680px;
+    background: #EEEEEE;
+    padding: 50px;
+    position: relative;
+  }
+  
+  .close {
+    background: transparent;
+    border: none;
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+  }
