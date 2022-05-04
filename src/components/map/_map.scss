@@ -1,11 +1,20 @@
-.map .container {
-    position: relative;
+.map {
+  background: url(../../static/images/map.jpg) no-repeat;
+  background-size: cover;
+  padding: 40px 0 133px;
+  &__wrapper {
+    background: $primary;
+    max-width: 380px;
+    padding: 50px 44px 26px;
+    color: $white;
   }
-  
-  .map-wrapper {
-    background: #008752;
-    width: 380px;
-    position: absolute;
-    top: 90px;
-    left: 0;
+  &__title {
+    @include font-size(30px, 36px, 900);
+    margin: 0 0 17px;
   }
+  &__phone {
+    color: $white;
+    margin-bottom: 23px;
+    display: block;
+  }
+}

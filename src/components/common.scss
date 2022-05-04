@@ -1,172 +1,123 @@
 @import "./vars";
-@import "./mixins";
+@import "./mixin";
 
 * {
-  box-sizing: border-box;
+    box-sizing: border-box;
 }
 
 body {
-  font-family: 'Lato', 'Arial', sans-serif;
-  @include font-size(16px, 21px);
-  color: #2C3036;
+    @include font-size($line-height:21px);
+    font-family: 'Lato', 'Arial', sans-serif;
+    color: $text-color;
+    margin: 0;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
 
 img {
-  width: 100%;
-  display: block;
+    display: block;
+    max-width: 100%;
 }
 
 .hidden {
-  font-size: 0;
-  line-height: 0;
-  width: 0;
+    font-size: 0;
+    width: 0;
+    height: 0;
 }
 
 .undotted {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
 }
 
 .container {
-  max-width: 1180px;
-  width: 100%;
-  margin: 0 auto;
+    max-width: 1180px;
+    margin: 0 auto;
+    padding: 0 20px;
+    @media screen and (min-width:1280px) {
+        padding: 0;
+    }
 }
 
 
 fieldset {
-  border: none;
-  padding: 0;
+    border: none;
+    padding: 0;
+}
+
+legend {
+    @include font-size(18px, 22px);
+    color: #6B6A6A;
+    margin-bottom: 14px;
 }
 
 input,
 textarea {
-  /* height: 50px; */
-  border: 2px solid #777;
-  font-size: 16px;
-  line-height: 20px;
-  color: #797979;
-  padding: 12px 20px;
-  background: transparent;
-  resize: none;
-  outline: none;
+    border: 2px solid #777;
+    background: transparent;
+    padding: 0 20px;
+    line-height: 47px;
+    outline: none;
+    resize: none;
+    &:focus,
+    &:focus {
+        border: 2px solid rgba(255, 182, 18, 0.5);
+    }
+    &::placeholder,
+    &::placeholder {
+        color: #c9c9c9;
+    }
 }
-
-input:focus,
-textarea:focus {
-  border-color:rgba(255, 182, 18, 0.5);
-}
-
-/* input::placeholder,
-textarea::placeholder {
-  color: red;
-} */
-
-/* input:focus label,
-textarea:focus label {
-  color: rgba(255, 182, 18, 0.5);
-} */
-
 
 label,
-legend {
-  font-size: 18px;
-  line-height: 22px;
-  color: #6B6A6A;
-  margin-bottom: 6px;
+.label {
+    @include font-size(18px, 22px);
+    color: #6B6A6A;
+    margin-bottom: 6px;
 }
 
-label.label-wrapper span {
-  margin-bottom: 6px;
+/* input:focus + label {
+    color: $yellow;
+} */
+
+.label__wrapper {
+    display: flex;
+    flex-direction: column-reverse;
+    margin-bottom: 20px;
+    width: 100%;
+    &:focus-within label,
+    &:focus-within span {
+        color: $yellow;
+    }
 }
 
-.field-2-column {
-  display: flex;
-  justify-content: space-between;
+.field_2-column {
+    display: flex;
+    justify-content: space-between;
+    @media screen and (max-width:767px) {
+        flex-wrap: wrap;
+    }
+    .label__wrapper {
+        &:first-child {
+            margin-right: 20px;
+            @media screen and (max-width:767px) {
+                margin-right: 0;
+            }
+        }        
+    }
 }
 
-.label-wrapper {
-  display: flex;
-  flex-direction: column;
-  margin-bottom: 20px;
-}
-
-.label-wrapper:focus-within label {
-  color: rgba(255, 182, 18, 0.5);
-}
-
-.field-2-column .label-wrapper {
-  max-width: 280px;
-  width: 100%;
-}
-
-input[type="checkbox"],
-input[type="radio"] {
-  display: none;
-}
-
-.checkbox-list,
-.radio-list {
-  display: flex;
-  margin-bottom: 30px;
-  margin-top: 10px;
-}
-
-.checkbox-label,
-.radio-label {
-  position: relative;
-  padding-left: 35px;
-  margin-right: 20px;
-  cursor: pointer;
-  &:before,
-  &:after {
-    @extend %pseudo;
-  }
-  &:before {
-    width: 19px;
-    height: 19px;
-    top: -3px;
-    left: 0;
-    border: 2px solid #777;
-  }
-  &:after {
-    width: 13px;
-    height: 13px;
-    top: 2px;
-    left: 5px;
-    background: #95459A;
-    opacity: 0;
-  }
-}
-
-.radio-label:before,
-.radio-label:after {
-  border-radius: 50%;
-}
-
-.checkbox-input:checked + .checkbox-label:after,
-.radio-input:checked + .radio-label:after {
-  opacity: 1;
-}
-
-
-.checkbox-input:disabled + .checkbox-label,
-.radio-input:disabled + .radio-label {
-  opacity: .5;
-}
 
 // Подключение компонентов
 @import "./header/header";
 @import "./footer/footer";
-@import "./brand/brand";
 @import "./button/button";
-@import "./chat/chat";
 @import "./map/map";
 @import "./popup/popup";
-@import "./service-item/service-item";
+@import "./input/input";
 @import "./svg/svg";
+@import "./chat/chat";
+@import "./service-card/service-card";

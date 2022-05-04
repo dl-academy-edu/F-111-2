@@ -4,15 +4,42 @@
 		<fieldset>
 			<div class="field_2-column">
 				<div class="label__wrapper">
-					
+					@@include('input/index.html', {
+						"type": "text",
+						"id": "input-name",
+						"for":"input-name",
+						"input-class":"",
+						"placeholder":"Ivan Ivanov",
+						"status":"",
+						"label-class":"",
+						"label":"Name"
+					})
 				</div>
 				<div class="label__wrapper">
-					
+					@@include('input/index.html', {
+						"type": "tel",
+						"id": "input-phone",
+						"for":"input-phone",
+						"input-class":"",
+						"placeholder":"",
+						"status":"required",
+						"label-class":"",
+						"label":"Phone"
+					})
 				</div>
 			</div>
 
 			<div class="label__wrapper">
-				
+				@@include('input/index.html', {
+					"type": "email",
+					"id": "input-email",
+					"for":"input-email",
+					"input-class":"",
+					"placeholder":"",
+					"status":"required",
+					"label-class":"",
+					"label":"E-mail"
+				})
 			</div>
 
 		</fieldset>

@@ -1,92 +1,176 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
-    <link href="/common.css" rel="stylesheet" />
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link href="/common.css" rel="stylesheet" />
     <link href="style.css" rel="stylesheet" />
-    <link rel="stylesheet" href="/static/fonts/oswald.css" />
     <link rel="shortcut icon" href="/static/images/favicon.ico">
-    <title>Главная</title>
+	<title>Contact Us</title>
 </head>
 
 <body>
-    @@include('header/index.html')
-    <main class="container">
 
-        <section>
-            <h1 class="contact-title">Contact Us</h1>
-            <form action="#" method="post" class="contact-form">
+	@@include('header/index.html')
 
-                <div class="field-2-column">
-                    <div class="label-wrapper">
-                        <label for="input-name">Name</label>
-                        <input type="text" id="input-name" placeholder="Ivan Ivanov">
-                    </div>
-                    <label class="label-wrapper">
-                        <span>Phone</span>
-                        <input type="tel">
-                    </label>
+	<main class="container">
 
-                </div>
+		<section>
+			<h1 class="contact__title">Contact Us</h1>
+			<form action="#" method="POST" class="contact__form">
+				<fieldset>
+					<div class="field_2-column">
+						<div class="label__wrapper">
+							@@include('input/index.html', {
+								"type": "text",
+								"id": "input-name",
+								"for":"input-name",
+								"input-class":"",
+								"placeholder":"Ivan Ivanov",
+								"status":"",
+								"label-class":"",
+								"label":"Name"
+							})
+						</div>
+						<div class="label__wrapper">
+							@@include('input/index.html', {
+								"type": "tel",
+								"id": "input-phone",
+								"for":"input-phone",
+								"input-class":"",
+								"placeholder":"",
+								"status":"required",
+								"label-class":"",
+								"label":"Phone"
+							})
+						</div>
+					</div>
 
-                <div class="label-wrapper">
-                    <label for="input-email" class="">Email</label>
-                    <input type="email" id="input-email" required>
-                </div>
+					<div class="label__wrapper">
+						@@include('input/index.html', {
+							"type": "email",
+							"id": "input-email",
+							"for":"input-email",
+							"input-class":"",
+							"placeholder":"",
+							"status":"required",
+							"label-class":"",
+							"label":"E-mail"
+						})
+					</div>
 
-                <fieldset>
-                    <legend>Payment Methods</legend>
-                    <ul class="undotted checkbox-list">
-                        <li>
-                            <input type="checkbox" id="check-cash" name="cash" class="checkbox-input">
-                            <label for="check-cash" class="checkbox-label">Сash</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="check-card" name="card" disabled class="checkbox-input">
-                            <label for="check-card" class="checkbox-label">Сredit Сard</label>
-                        </li>
-                        <li>
-                            <input type="checkbox" id="check-receipt" name="receipt" class="checkbox-input" checked>
-                            <label for="check-receipt" class="checkbox-label">Receipt</label>
-                        </li>
-                    </ul>
-                </fieldset>
+				</fieldset>
 
-                <div class="label-wrapper">
-                    <label for="input-city">City of Birth</label>
-                    <input type="text" id="input-city">
-                </div>
+				<fieldset>
+					<legend>Payment Methods</legend>
+					<ul class="undotted checkbox-list">
+						<li>
+							@@include('input/index.html', {
+								"type": "checkbox",
+								"id": "checkbox-cash",
+								"for":"checkbox-cash",
+								"input-class":"checkbox-input",
+								"input-name":"check-cash",
+								"placeholder":"",
+								"status":"checked",
+								"label-class":"checkbox-label",
+								"label":"Сash"
+							})
+						</li>
+						<li>
+							@@include('input/index.html', {
+								"type": "checkbox",
+								"id": "checkbox-card",
+								"for":"checkbox-card",
+								"input-class":"checkbox-input",
+								"input-name":"check-card",
+								"placeholder":"",
+								"status":"",
+								"label-class":"checkbox-label",
+								"label":"Сredit Сard"
+							})
+						</li>
+						<li>
+							@@include('input/index.html', {
+								"type": "checkbox",
+								"id": "checkbox-receipt",
+								"for":"checkbox-receipt",
+								"input-class":"checkbox-input",
+								"input-name":"check-receipt",
+								"placeholder":"",
+								"status":"disabled",
+								"label-class":"checkbox-label",
+								"label":"Receipt"
+							})
+						</li>
+					</ul>
+				</fieldset>
 
-                <fieldset>
-                    <legend>Do you need a report on the services provided?</legend>
-                    <ul class="undotted radio-list">
-                        <li>
-                            <input type="radio" id="radio-yes" name="report" checked class="radio-input">
-                            <label for="radio-yes" class="radio-label">Yes</label>
-                        </li>
-                        <li>
-                            <input type="radio" id="radio-no" name="report" class="radio-input">
-                            <label for="radio-no" class="radio-label">No</label>
-                        </li>
-                    </ul>
-                </fieldset>
-                <div class="label-wrapper">
-                    <label for="textarea">Message</label>
-                    <textarea placeholder="Message" id="textarea"></textarea>
-                </div>
+				<div class="label__wrapper">
+					@@include('input/index.html', {
+						"type": "date",
+						"id": "input-city",
+						"for":"input-city",
+						"input-cclass":"",
+						"placeholder":"",
+						"status":"",
+						"label-class":"",
+						"label":"City of Birth"
+					})
+				</div>
 
 
-                <button type="submit" class="button">SUBMIT</button>
+				<fieldset>
+					<legend>Do you need a report on the services provided?</legend>
+					<ul class="undotted radio-list">
+						<li>
 
-            </form>
-        </section>
-    </main>
+							@@include('input/index.html', {
+								"type": "radio",
+								"id": "radio-yes",
+								"for":"radio-yes",
+								"input-class":"radio-input",
+								"input-name":"report",
+								"placeholder":"",
+								"status":"checked",
+								"label-class":"radio-label",
+								"label":"Yes"
+							})
+						</li>
+						<li>
+							@@include('input/index.html', {
+								"type": "radio",
+								"id": "radio-no",
+								"for":"radio-no",
+								"input-class":"radio-input",
+								"input-name":"report",
+								"placeholder":"",
+								"status":"checked",
+								"label-class":"radio-label",
+								"label":"No"
+							})
+						</li>
+					</ul>
+				</fieldset>
 
-    @@include('map/index.html')
-    @@include('footer/index.html')
-    <script src="scripts.js"></script>
+				<div class="label__wrapper">
+					<textarea id="text-message" placeholder="Message"></textarea>
+					<label for="text-message">Message</label>
+				</div>
+
+				<button type="submit" class="button">SUBMIT</button>
+
+			</form>
+		</section>
+
+	</main>
+
+	@@include('map/index.html')
+
+	@@include('footer/index.html')
+
 </body>
 
 </html>
