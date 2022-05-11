@@ -43,8 +43,8 @@
 					"text":"When you choose Chem-Dry, you get deeper clean, faster-drying carpet and healthier home for you."
 				})
 				@@include('service-card/index.html', {
-					"src": "./../static/images/delete.jpg",
-					"srcset": "./../static/images/services/service1.jpg, ./../static/images/services/service1-2x.jpg 2x",
+					"src": "./../static/images/services/service2.jpg",
+					"srcset": "./../static/images/services/service2.jpg, ./../static/images/services/service2-2x.jpg 2x",
 					"alt": "brand1",
 					"href":"#",
 					"title":"Tile & Grout Cleaning",
@@ -81,7 +81,13 @@
 					detergents so it’s safe and non-toxic for your family and pets.</p>
 				<a href="#" class="button">Learn More</a>
 			</div>
-			<img class="about__img" src="../../static/images/about.jpg" alt="">
+			<picture class="about__img">
+				<source srcset="../../static/images/about/about-mobile.jpg, ../../static/images/about/about-mobile2x.jpg 2x" media="(max-width: 500px)">
+				<source srcset="../../static/images/about/about-tablet.jpg, ../../static/images/about/about-tablet2x.jpg 2x" media="(max-width: 769px)">
+				<source srcset="../../static/images/about/about-desktop.jpg, ../../static/images/about/about-desktop2x.jpg 2x">
+				<img src="../../static/images/about/about-desktop.jpg" alt="">
+			</picture>
+			
 		</section>
 
 		<section class="awards container">
