@@ -1,12 +1,15 @@
 .map {
-  background: url(../../static/images/map.jpg) no-repeat;
+  // background: url(../../static/images/map.jpg) no-repeat;
   background-size: cover;
-  padding: 40px 0 133px;
+  padding: 40px 0 0;
+  position: relative;
   &__wrapper {
     background: $primary;
     max-width: 380px;
     padding: 50px 44px 26px;
     color: $white;
+    position: absolute;
+    z-index: 2
   }
   &__title {
     @include font-size(30px, 36px, 900);
@@ -17,4 +20,10 @@
     margin-bottom: 23px;
     display: block;
   }
+}
+
+.map__iframe {
+  width: 100%;
+  height: 426px;
+  z-index: -1;
 }
